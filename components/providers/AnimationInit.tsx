@@ -24,6 +24,7 @@ export default function AnimationInit() {
 
       // ---- helpers ----
       function splitWords(el: Element) {
+        if (el.querySelector('.word')) return el.querySelectorAll('.word .inner')
         const text = el.textContent ?? ''
         el.textContent = ''
         const frag = document.createDocumentFragment()
@@ -44,6 +45,7 @@ export default function AnimationInit() {
       }
 
       function splitChars(el: Element) {
+        if (el.querySelector('.char')) return el.querySelectorAll('.char')
         const walk = (node: Node) => {
           if (node.nodeType === 3) {
             const text = node.textContent ?? ''
@@ -111,10 +113,28 @@ export default function AnimationInit() {
         if (headline) gsap.to(headline, { yPercent: -32, opacity: 0.25, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } })
       }
 
+      // Apply all "from" states immediately at mount, while the preloader still
+      // covers the screen — so nothing is shown un-hidden then snaps. Play happens
+      // on preloader-done. (Hero words are primed here too, then choreographed by Preloader.)
+      function primeStates() {
+        document.querySelectorAll('[data-words-pullup]').forEach((el) => {
+          gsap.set(splitWords(el), { yPercent: 115, opacity: 0 })
+        })
+        gsap.set('[data-reveal]', { opacity: 0, yPercent: 8, filter: 'blur(16px)' })
+        document.querySelectorAll('[data-card-stagger]').forEach((c) => {
+          gsap.set(c.querySelectorAll('[data-card]'), { opacity: 0, scale: 0.96, y: 28 })
+        })
+        document.querySelectorAll('[data-anim-para]').forEach((el) => {
+          el.classList.add('char-reveal')
+          gsap.set(splitChars(el), { opacity: 0.2 })
+        })
+      }
+
       function wordsPullUp() {
         document.querySelectorAll('[data-words-pullup]').forEach((el) => {
-          const words = splitWords(el)
-          gsap.fromTo(words, { yPercent: 115, opacity: 0 }, {
+          if (el.closest('.hero')) return // hero headline is driven by the Preloader as the mask lifts
+          const words = el.querySelectorAll('.word .inner')
+          gsap.to(words, {
             yPercent: 0, opacity: 1, duration: 1.0, ease: 'power4.out', stagger: 0.08,
             scrollTrigger: { trigger: el, start: 'top 88%' },
           })
@@ -123,9 +143,7 @@ export default function AnimationInit() {
 
       function animatedParagraphs() {
         document.querySelectorAll('[data-anim-para]').forEach((el) => {
-          const chars = splitChars(el)
-          el.classList.add('char-reveal')
-          gsap.fromTo(chars, { opacity: 0.2 }, {
+          gsap.to(el.querySelectorAll('.char'), {
             opacity: 1, ease: 'none', stagger: { each: 0.02, from: 'start' },
             scrollTrigger: { trigger: el, start: 'top 78%', end: 'bottom 62%', scrub: true },
           })
@@ -134,14 +152,13 @@ export default function AnimationInit() {
 
       function genericReveals() {
         document.querySelectorAll('[data-reveal]').forEach((el) => {
-          gsap.fromTo(el, { opacity: 0, yPercent: 8, filter: 'blur(16px)' }, {
+          gsap.to(el, {
             opacity: 1, yPercent: 0, filter: 'blur(0px)', duration: 1.3, ease: 'power3.out',
             scrollTrigger: { trigger: el, start: 'top 88%' },
           })
         })
         document.querySelectorAll('[data-card-stagger]').forEach((container) => {
-          const items = container.querySelectorAll('[data-card]')
-          gsap.fromTo(items, { opacity: 0, scale: 0.96, y: 28 }, {
+          gsap.to(container.querySelectorAll('[data-card]'), {
             opacity: 1, scale: 1, y: 0, duration: 1.0, ease: 'power3.out', stagger: 0.1,
             scrollTrigger: { trigger: container, start: 'top 82%' },
           })
@@ -187,8 +204,8 @@ export default function AnimationInit() {
         })
       }
 
-      // Run immediately
-      if (!prefersReduced) { vinylSpin(); infiniteMarquees(); testimonialsTicker() }
+      // Run immediately — prime hidden states under the preloader, start ambient loops
+      if (!prefersReduced) { primeStates(); vinylSpin(); infiniteMarquees(); testimonialsTicker() }
 
       function runScrollAnimations() {
         if (prefersReduced) { ScrollTrigger.refresh(); return }

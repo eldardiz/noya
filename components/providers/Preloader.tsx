@@ -57,7 +57,7 @@ export default function Preloader() {
           if (heroImg) gsap.fromTo(heroImg, { scale: 1.35, filter: 'brightness(0.55)' }, { scale: 1, filter: 'brightness(1)', duration: 2.2, ease: 'power3.out', delay: 0.3 })
 
           const innerWords = document.querySelectorAll('.hero-headline .word .inner')
-          if (innerWords.length) gsap.fromTo(Array.from(innerWords), { yPercent: 115 }, { yPercent: 0, duration: 1.1, ease: 'power4.out', stagger: 0.06, delay: 0.85 })
+          if (innerWords.length) gsap.fromTo(Array.from(innerWords), { yPercent: 115, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1.1, ease: 'power4.out', stagger: 0.06, delay: 0.85 })
 
           gsap.fromTo('.hero-fade', { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', stagger: 0.12, delay: 1.3 })
         },

@@ -20,9 +20,9 @@ export default function HomePage() {
       <AboutSection />
       <DaypartSection />
       <FruhstuckSection />
-      <SpeisenSection />
-      <MarqueeSection />
       <AmbienteSection />
+      <MarqueeSection />
+      <SpeisenSection />
       <PlaylistSection />
       <TestimonialsSection />
       <SocialSection />

@@ -15,6 +15,10 @@ export default function HeroSection() {
           <span className="sep" />
           <span className="gold">{brand.venue} {brand.city}</span>
         </div>
+        <div className="hero-actions hero-fade">
+          <a className="btn beige-fill" href={brand.reserveUrl}>Reservieren</a>
+          <a className="btn" href="#speisen">Speisekarte</a>
+        </div>
       </div>
 
       <div className="hero-meta left hero-fade"><div className="meta">{brand.city} · {brand.venue}</div></div>
