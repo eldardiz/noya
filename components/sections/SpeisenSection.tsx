@@ -32,7 +32,7 @@ export default function SpeisenSection() {
   return (
     <section className="hscroll-outer" id="speisen" data-hscroll-outer>
       <div className="hscroll-pin">
-        {panels.map((p, i) => (
+        {panels.map((p) => (
           <div className="hscroll-panel" data-hscroll-panel key={p.head}>
             <div className="menu-photo">
               <img src={p.photo} alt={`${p.head} im NOYA`} />
@@ -53,15 +53,12 @@ export default function SpeisenSection() {
                   </li>
                 ))}
               </ul>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-                <span className="meta gold">Panel {i + 1} von 3</span>
+              <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                 <a className="cta brown">Ganze Karte →</a>
               </div>
             </div>
           </div>
         ))}
-        <div className="hscroll-progress"><div className="bar" /></div>
-        <div className="hscroll-hint eyebrow gold">scroll horizontal →</div>
       </div>
     </section>
   )

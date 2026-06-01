@@ -4,7 +4,7 @@ export default function FruhstuckSection() {
       <div className="split">
         <div className="split-photo">
           <img src="/assets/espresso-machine.jpg" alt="Italienische Espressomaschine im NOYA" data-parallax="0.12" />
-          <div className="ph-eyebrow eyebrow">— Frühstück · I</div>
+          <div className="ph-eyebrow eyebrow">— Frühstück</div>
           <div className="ph-meta meta">La Cimbali · Eccellenza Italiana · dal 1912</div>
         </div>
         <div className="split-copy">

@@ -3,8 +3,7 @@ export default function AboutSection() {
     <section className="section bg-beige" id="ueber">
       <div className="noise" />
       <div className="wrap">
-        <div className="sec-head" style={{ marginBottom: 'clamp(32px,4vw,56px)' }}>
-          <div className="sec-num">— Kapitel 01 / Über uns</div>
+        <div className="sec-head" style={{ marginBottom: 'clamp(32px,4vw,56px)', justifyContent: 'flex-end' }}>
           <div className="eyebrow brown">Brigittenau · 2025 —</div>
         </div>
 

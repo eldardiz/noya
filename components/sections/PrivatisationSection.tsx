@@ -10,7 +10,6 @@ export default function PrivatisationSection() {
       <div className="priv">
         <div className="priv-info">
           <div className="noise" />
-          <div className="sec-num" style={{ marginBottom: 24 }}>— Kapitel 06 / Veranstaltungen</div>
           <span className="script">ganz für sie allein</span>
           <h2 className="display brown" data-words-pullup>Private Feiern</h2>
           <p className="body-copy">

@@ -18,8 +18,7 @@ export default function AmbienteSection() {
             <h2 className="display brown" data-words-pullup style={{ fontSize: 'clamp(48px,8vw,110px)', marginTop: 6 }}>Ambiente</h2>
           </div>
           <div style={{ textAlign: 'right', maxWidth: 240 }}>
-            <div className="sec-num">— Kapitel 04</div>
-            <p className="body-copy brown" style={{ fontSize: 12, marginTop: 8, opacity: .7 }}>
+            <p className="body-copy brown" style={{ fontSize: 12, opacity: .7 }}>
               Warmes Licht, marokkanische Lampen, italienische Cimbali.
             </p>
           </div>

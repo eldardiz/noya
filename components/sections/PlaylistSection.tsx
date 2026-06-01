@@ -13,8 +13,7 @@ export default function PlaylistSection() {
     <section className="section bg-brown">
       <div className="noise" />
       <div className="wrap">
-        <div className="sec-head" style={{ marginBottom: 'clamp(32px,4vw,48px)' }}>
-          <div className="sec-num">— Kapitel 05 / Playlist</div>
+        <div className="sec-head" style={{ marginBottom: 'clamp(32px,4vw,48px)', justifyContent: 'flex-end' }}>
           <div className="meta beige" style={{ opacity: .65 }}>↻ Updated wöchentlich · Spotify</div>
         </div>
 
