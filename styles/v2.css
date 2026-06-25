@@ -1,0 +1,279 @@
+/* =========================================================
+   NOYA V2 — hero header (Qitchen-style bento), NOYA branding.
+   Scoped under .hv2 — reuses tokens from noya.css, no new colors/fonts.
+   ========================================================= */
+
+/* Hide the global fixed navbar only on the V2 preview page */
+body:has(.hv2) .nav{display:none !important;}
+
+.hv2{
+  position:relative;
+  height:100svh;
+  min-height:660px;
+  background:linear-gradient(158deg,var(--noya-ink) 0%,var(--noya-brown-deep) 60%,#3a2419 100%);
+  color:var(--noya-beige);
+  padding:clamp(10px,1.2vw,16px);
+  overflow:hidden;
+}
+
+/* ---- bento grid: big hero left, card rail right ---- */
+.hv2-grid{
+  display:grid;
+  grid-template-columns:67fr 33fr;
+  gap:clamp(8px,1vw,14px);
+  height:100%;
+}
+
+/* ---- floating pill navbar (top-left, over the hero) ---- */
+.hv2-nav{
+  position:fixed;
+  top:clamp(20px,2.4vw,34px);
+  left:clamp(22px,2.6vw,42px);
+  z-index:30;
+  display:flex;align-items:center;gap:clamp(16px,1.9vw,28px);
+  background:rgba(42,24,16,.42);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border:1px solid rgba(239,235,227,.16);
+  border-radius:999px;
+  padding:9px 9px 9px 18px;
+  transition:background .4s,border-color .4s,box-shadow .4s,top .4s;
+}
+/* solid pill once scrolled past the hero */
+.hv2-nav.scrolled{
+  top:clamp(12px,1.6vw,20px);
+  background:var(--noya-brown);
+  border-color:rgba(201,168,116,.28);
+  box-shadow:0 10px 34px rgba(42,24,16,.32);
+}
+.hv2-burger{display:flex;flex-direction:column;gap:4px;padding:4px 2px;background:transparent;border:0;}
+.hv2-burger span{display:block;width:20px;height:1.5px;background:var(--noya-beige);opacity:.85;transition:transform .3s,opacity .3s;}
+.hv2-burger:hover span:nth-child(1){transform:translateY(1px);}
+.hv2-burger:hover span:nth-child(3){transform:translateY(-1px);}
+.hv2-logo{font-family:var(--font-display);font-weight:400;font-size:20px;letter-spacing:.2em;text-transform:uppercase;line-height:1;}
+.hv2-links{display:flex;gap:clamp(18px,1.8vw,26px);}
+.hv2-links a{font-size:13px;letter-spacing:.2em;text-transform:uppercase;opacity:.92;transition:opacity .3s,color .3s;}
+.hv2-links a:hover{opacity:1;color:var(--noya-gold);}
+.hv2-reserve{
+  display:inline-flex;align-items:center;
+  background:var(--noya-gold);color:var(--noya-brown);
+  border-radius:999px;padding:10px 20px;
+  font-size:10px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;
+  transition:background .35s,color .35s;white-space:nowrap;
+}
+.hv2-reserve:hover{background:var(--noya-beige);color:var(--noya-brown);}
+
+/* ---- hero (left) ---- */
+.hv2-hero{
+  position:relative;overflow:hidden;
+  border-radius:clamp(14px,1.5vw,24px);
+  background:var(--noya-brown-deep);
+}
+.hv2-hero-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transform:scale(1.04);transform-origin:55% 45%;
+  animation:hv2-kenburns 11s ease-out both;will-change:transform;
+}
+@keyframes hv2-kenburns{from{transform:scale(1.13)}to{transform:scale(1.04)}}
+/* video showreel provides its own motion — disable the CSS ken-burns */
+video.hv2-hero-img{animation:none;transform:none;}
+.hv2-hero-grad{
+  position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(180deg,rgba(42,24,16,.36) 0%,rgba(42,24,16,0) 26%,rgba(42,24,16,.34) 56%,rgba(42,24,16,.92) 100%),
+    radial-gradient(140% 92% at 18% 100%,rgba(42,24,16,.64) 0%,rgba(42,24,16,0) 58%);
+}
+.hv2-hero .noise{border-radius:inherit;z-index:3;}
+
+.hv2-hero-foot{
+  position:absolute;z-index:5;
+  left:clamp(22px,3vw,56px);right:clamp(22px,3vw,56px);
+  bottom:clamp(22px,3.6vw,52px);
+}
+.hv2-hero-foot .script{
+  display:block;color:var(--noya-terracotta-light);
+  font-size:clamp(26px,3.4vw,46px);margin-bottom:clamp(4px,.8vw,12px);
+  text-shadow:0 2px 22px rgba(42,24,16,.55);
+}
+.hv2-title{
+  font-size:clamp(54px,8.6vw,148px);
+  line-height:.84;letter-spacing:-0.065em;
+  color:var(--noya-beige);
+  text-shadow:0 4px 34px rgba(42,24,16,.5);
+}
+.hv2-title .word{display:block;}
+
+/* social pill, bottom-right of hero */
+.hv2-social{
+  position:absolute;z-index:6;
+  right:clamp(20px,2.4vw,34px);bottom:clamp(20px,2.4vw,32px);
+  display:flex;align-items:center;gap:14px;
+  background:rgba(42,24,16,.42);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid rgba(239,235,227,.16);
+  border-radius:999px;padding:9px 18px;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+}
+.hv2-social a{opacity:.85;transition:color .3s,opacity .3s;}
+.hv2-social a:hover{opacity:1;color:var(--noya-gold);}
+.hv2-social .sep{width:1px;height:11px;background:rgba(239,235,227,.3);}
+
+/* ---- right card rail ---- */
+.hv2-rail{display:grid;grid-template-rows:repeat(3,1fr);gap:clamp(8px,1vw,14px);height:100%;}
+.hv2-card{
+  position:relative;display:block;overflow:hidden;
+  border-radius:clamp(14px,1.5vw,24px);
+  background:var(--noya-brown-deep);
+}
+.hv2-card img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform 1.1s cubic-bezier(.2,.8,.2,1);will-change:transform;
+}
+.hv2-card:hover img{transform:scale(1.07);}
+.hv2-card::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(42,24,16,.06) 0%,rgba(42,24,16,.12) 55%,rgba(42,24,16,.5) 100%);
+}
+.hv2-tab{
+  position:absolute;z-index:3;left:clamp(12px,1.4vw,16px);bottom:clamp(12px,1.4vw,16px);
+  display:flex;align-items:center;gap:12px;
+  background:rgba(42,24,16,.5);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border:1px solid rgba(239,235,227,.18);
+  border-radius:999px;padding:8px 8px 8px 16px;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--noya-beige);
+  transition:background .35s,color .35s,border-color .35s;
+}
+.hv2-card:hover .hv2-tab{background:var(--noya-gold);color:var(--noya-brown);border-color:var(--noya-gold);}
+.hv2-tab .arrow{
+  display:flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--noya-gold);color:var(--noya-brown);font-size:12px;
+  transition:transform .35s,background .35s,color .35s;
+}
+.hv2-card:hover .hv2-tab .arrow{transform:translateX(3px);background:var(--noya-brown);color:var(--noya-gold);}
+
+/* gentle entrance for the non-JS overlay bits (nav, social) */
+.hv2-fade{animation:hv2-fade-in 1s ease both;animation-delay:.35s;}
+@keyframes hv2-fade-in{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:860px){
+  .hv2{height:auto;min-height:100svh;}
+  .hv2-grid{grid-template-columns:1fr;height:auto;gap:12px;}
+  .hv2-hero{height:70svh;min-height:460px;}
+  .hv2-links{display:none;}
+  .hv2-rail{grid-template-rows:none;height:auto;}
+  .hv2-card{height:30svh;min-height:210px;}
+  .hv2-title{font-size:clamp(48px,13vw,96px);}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hv2-hero-img{animation:none;transform:scale(1.04);}
+  .hv2-fade{animation:none;}
+}
+
+/* =========================================================
+   NAV — roll-up hover labels + fullscreen overlay menu
+   ========================================================= */
+
+/* roll-up label: two stacked copies, slide up one line on hover */
+.hv2-roll{display:inline-block;overflow:hidden;height:1.15em;line-height:1.15;vertical-align:bottom;}
+.hv2-roll-in{display:block;transition:transform .55s cubic-bezier(.6,0,.2,1);}
+.hv2-roll-in>span{display:block;height:1.15em;line-height:1.15;}
+a:hover>.hv2-roll .hv2-roll-in,
+.hv2-reserve:hover .hv2-roll .hv2-roll-in{transform:translateY(-1.15em);}
+/* gold tint on the incoming copy for nav + menu links (not the gold pill) */
+.hv2-links a .hv2-roll-in>span:nth-child(2),
+.hv2-menu-link .hv2-roll-in>span:nth-child(2){color:var(--noya-gold);}
+
+/* lock scroll behind the overlay */
+body.hv2-noscroll{overflow:hidden;}
+
+/* fullscreen overlay */
+.hv2-menu{
+  position:fixed;inset:0;z-index:60;
+  background:var(--noya-ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;
+  transition:opacity .5s ease,visibility 0s linear .5s;
+}
+.hv2-menu.open{opacity:1;visibility:visible;transition:opacity .45s ease;}
+
+.hv2-menu-close{
+  position:absolute;top:clamp(20px,2.4vw,34px);left:clamp(22px,2.6vw,42px);
+  width:52px;height:52px;border-radius:14px;
+  border:1px solid rgba(239,235,227,.2);background:transparent;
+  transition:background .3s,border-color .3s,transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.hv2-menu-close:hover{background:rgba(239,235,227,.08);border-color:rgba(239,235,227,.4);transform:rotate(90deg);}
+.hv2-menu-close span{position:absolute;top:50%;left:50%;width:20px;height:1.5px;background:var(--noya-beige);}
+.hv2-menu-close span:first-child{transform:translate(-50%,-50%) rotate(45deg);}
+.hv2-menu-close span:last-child{transform:translate(-50%,-50%) rotate(-45deg);}
+
+.hv2-menu-inner{display:flex;flex-direction:column;align-items:center;}
+.hv2-orn{
+  width:70px;height:9px;margin:clamp(16px,3vw,30px) 0;opacity:.6;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='70' height='9'><line x1='12' y1='4.5' x2='58' y2='4.5' stroke='%23C9A874' stroke-width='1'/><rect x='2' y='1.5' width='6' height='6' fill='%23C9A874' transform='rotate(45 5 4.5)'/><rect x='62' y='1.5' width='6' height='6' fill='%23C9A874' transform='rotate(45 65 4.5)'/></svg>") no-repeat center/contain;
+}
+
+.hv2-menu-list{display:flex;flex-direction:column;align-items:center;gap:clamp(2px,.7vw,10px);}
+.hv2-menu-link{
+  font-family:var(--font-display);font-weight:400;text-transform:uppercase;
+  color:var(--noya-beige);letter-spacing:.005em;line-height:1.15;
+  font-size:clamp(34px,6vw,72px);
+  opacity:0;transform:translateY(28px);
+  transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.hv2-menu.open .hv2-menu-link{opacity:1;transform:none;}
+
+.hv2-menu-foot{
+  position:absolute;bottom:clamp(22px,3vw,40px);left:0;right:0;
+  display:flex;justify-content:center;gap:26px;flex-wrap:wrap;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--noya-beige);
+  opacity:0;transition:opacity .5s ease .35s;
+}
+.hv2-menu.open .hv2-menu-foot{opacity:.65;}
+.hv2-menu-foot a{transition:color .3s;}
+.hv2-menu-foot a:hover{color:var(--noya-gold);opacity:1;}
+
+/* =========================================================
+   AMBIENTE — extra row + click-to-enlarge lightbox
+   ========================================================= */
+.hv2-amb-tile{cursor:zoom-in;}
+.hv2-amb-extra{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:14px;margin-top:14px;
+}
+.hv2-amb-extra figure{margin:0;overflow:hidden;position:relative;aspect-ratio:4/3;}
+.hv2-amb-extra img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1);box-shadow:0 12px 36px rgba(78,48,37,.12);}
+.hv2-amb-extra figure:hover img{transform:scale(1.05);}
+
+.hv2-lightbox{
+  position:fixed;inset:0;z-index:120;
+  background:rgba(20,11,7,.92);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(20px,5vw,80px);cursor:zoom-out;
+  animation:hv2-fade-in .3s ease both;
+}
+.hv2-lightbox img{
+  max-width:100%;max-height:100%;width:auto;height:auto;
+  object-fit:contain;border-radius:4px;cursor:default;
+  box-shadow:0 30px 90px rgba(0,0,0,.6);
+}
+.hv2-lightbox-close{
+  position:absolute;top:clamp(18px,2.2vw,30px);right:clamp(18px,2.2vw,30px);
+  width:48px;height:48px;border-radius:12px;
+  border:1px solid rgba(239,235,227,.22);background:transparent;cursor:pointer;
+  transition:background .3s,transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.hv2-lightbox-close:hover{background:rgba(239,235,227,.1);transform:rotate(90deg);}
+.hv2-lightbox-close span{position:absolute;top:50%;left:50%;width:18px;height:1.5px;background:var(--noya-beige);}
+.hv2-lightbox-close span:first-child{transform:translate(-50%,-50%) rotate(45deg);}
+.hv2-lightbox-close span:last-child{transform:translate(-50%,-50%) rotate(-45deg);}
+
+@media (max-width:768px){
+  .hv2-amb-extra{grid-template-columns:repeat(2,1fr);}
+}

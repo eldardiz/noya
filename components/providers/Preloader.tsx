@@ -1,8 +1,11 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Preloader() {
+  const pathname = usePathname()
+  const skip = pathname === '/v2' // V2 is the new base — no preloader there
   const [done, setDone] = useState(false)
   const counterRef = useRef<HTMLDivElement>(null)
   const maskRef = useRef<HTMLDivElement>(null)
@@ -10,6 +13,7 @@ export default function Preloader() {
   const rootRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (skip) return
     let mounted = true
 
     async function run() {
@@ -66,9 +70,9 @@ export default function Preloader() {
 
     run()
     return () => { mounted = false }
-  }, [])
+  }, [skip])
 
-  if (done) return null
+  if (skip || done) return null
 
   return (
     <div className="preloader" ref={rootRef}>

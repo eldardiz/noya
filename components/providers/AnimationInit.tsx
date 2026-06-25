@@ -118,11 +118,13 @@ export default function AnimationInit() {
       // on preloader-done. (Hero words are primed here too, then choreographed by Preloader.)
       function primeStates() {
         document.querySelectorAll('[data-words-pullup]').forEach((el) => {
-          gsap.set(splitWords(el), { yPercent: 115, opacity: 0 })
+          const v2 = el.closest('.hv2') // V2 base adds a subtle blur-in to the stagger
+          gsap.set(splitWords(el), { yPercent: 115, opacity: 0, ...(v2 ? { filter: 'blur(12px)' } : {}) })
         })
         gsap.set('[data-reveal]', { opacity: 0, yPercent: 8, filter: 'blur(16px)' })
         document.querySelectorAll('[data-card-stagger]').forEach((c) => {
-          gsap.set(c.querySelectorAll('[data-card]'), { opacity: 0, scale: 0.96, y: 28 })
+          const v2 = c.closest('.hv2')
+          gsap.set(c.querySelectorAll('[data-card]'), { opacity: 0, scale: 0.96, y: 28, ...(v2 ? { filter: 'blur(12px)' } : {}) })
         })
         document.querySelectorAll('[data-anim-para]').forEach((el) => {
           el.classList.add('char-reveal')
@@ -133,9 +135,11 @@ export default function AnimationInit() {
       function wordsPullUp() {
         document.querySelectorAll('[data-words-pullup]').forEach((el) => {
           if (el.closest('.hero')) return // hero headline is driven by the Preloader as the mask lifts
+          const v2 = el.closest('.hv2')
           const words = el.querySelectorAll('.word .inner')
           gsap.to(words, {
             yPercent: 0, opacity: 1, duration: 1.0, ease: 'power4.out', stagger: 0.08,
+            ...(v2 ? { filter: 'blur(0px)' } : {}),
             scrollTrigger: { trigger: el, start: 'top 88%' },
           })
         })
@@ -158,8 +162,10 @@ export default function AnimationInit() {
           })
         })
         document.querySelectorAll('[data-card-stagger]').forEach((container) => {
+          const v2 = container.closest('.hv2')
           gsap.to(container.querySelectorAll('[data-card]'), {
             opacity: 1, scale: 1, y: 0, duration: 1.0, ease: 'power3.out', stagger: 0.1,
+            ...(v2 ? { filter: 'blur(0px)' } : {}),
             scrollTrigger: { trigger: container, start: 'top 82%' },
           })
         })
