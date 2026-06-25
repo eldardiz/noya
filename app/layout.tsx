@@ -3,8 +3,6 @@ import { Cormorant_Garamond, Jost, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/providers/LenisProvider";
 import AnimationInit from "@/components/providers/AnimationInit";
-import Preloader from "@/components/providers/Preloader";
-import Navbar from "@/components/layout/Navbar";
 import { brand } from "@/lib/brand";
 
 const cormorant = Cormorant_Garamond({
@@ -52,9 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="de" className={`${cormorant.variable} ${jost.variable} ${pinyon.variable}`}>
       <body>
-        <Preloader />
         <LenisProvider>
-          <Navbar />
           <AnimationInit />
           {children}
         </LenisProvider>

@@ -1,35 +1,37 @@
-import HeroSection from '@/components/sections/HeroSection'
-import AboutSection from '@/components/sections/AboutSection'
+import '@/styles/v2.css'
+import HeroV2 from '@/components/sections/HeroV2'
+import AboutV2 from '@/components/sections/v2/About'
+import FruhstuckV2 from '@/components/sections/v2/Fruhstuck'
+import AmbienteV2 from '@/components/sections/v2/Ambiente'
+import SpeisenV2 from '@/components/sections/v2/Speisen'
+import PlaylistV2 from '@/components/sections/v2/Playlist'
+import SocialV2 from '@/components/sections/v2/Social'
+import PrivatisationV2 from '@/components/sections/v2/Privatisation'
+import AnfahrtV2 from '@/components/sections/v2/Anfahrt'
+import FinalCtaV2 from '@/components/sections/v2/FinalCta'
+import FooterV2 from '@/components/sections/v2/Footer'
+// Image-less sections shared with the V2 base
 import DaypartSection from '@/components/sections/DaypartSection'
-import FruhstuckSection from '@/components/sections/FruhstuckSection'
-import SpeisenSection from '@/components/sections/SpeisenSection'
 import MarqueeSection from '@/components/sections/MarqueeSection'
-import AmbienteSection from '@/components/sections/AmbienteSection'
-import PlaylistSection from '@/components/sections/PlaylistSection'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
-import SocialSection from '@/components/sections/SocialSection'
-import PrivatisationSection from '@/components/sections/PrivatisationSection'
-import AnfahrtSection from '@/components/sections/AnfahrtSection'
-import FinalCtaSection from '@/components/sections/FinalCtaSection'
-import Footer from '@/components/layout/Footer'
 
 export default function HomePage() {
   return (
-    <main>
-      <HeroSection />
-      <AboutSection />
+    <main className="v2-page">
+      <HeroV2 />
+      <AboutV2 />
       <DaypartSection />
-      <FruhstuckSection />
-      <AmbienteSection />
+      <FruhstuckV2 />
+      <AmbienteV2 />
       <MarqueeSection />
-      <SpeisenSection />
-      <PlaylistSection />
+      <SpeisenV2 />
+      <PlaylistV2 />
       <TestimonialsSection />
-      <SocialSection />
-      <PrivatisationSection />
-      <AnfahrtSection />
-      <FinalCtaSection />
-      <Footer />
+      <SocialV2 />
+      <PrivatisationV2 />
+      <AnfahrtV2 />
+      <FinalCtaV2 />
+      <FooterV2 />
     </main>
   )
 }

@@ -10,8 +10,8 @@ export default function ImpressumPage() {
   return (
     <main className="v2-page">
       <div className="legal-bar">
-        <a href="/v2" className="logo">{brand.name}</a>
-        <a href="/v2" className="back">← Zurück</a>
+        <a href="/" className="logo">{brand.name}</a>
+        <a href="/" className="back">← Zurück</a>
       </div>
 
       <article className="legal">
