@@ -2,20 +2,18 @@
 
 import { useEffect, useState } from 'react'
 
-// V2 Ambiente — signature 6-tile masonry + an extra row, all click-to-enlarge (lightbox).
-const tiles = [
-  { src: '/assets/v2/sections/ambiente-1.jpg', cls: 'g1', alt: 'Warmes Licht im NOYA' },
-  { src: '/assets/v2/sections/ambiente-2.jpg', cls: 'g2', alt: 'Der Gastraum im NOYA' },
-  { src: '/assets/v2/sections/ambiente-3.jpg', cls: 'g3', alt: 'Tische im NOYA' },
-  { src: '/assets/v2/sections/ambiente-4.jpg', cls: 'g4', alt: 'NOYA Detail' },
-  { src: '/assets/v2/sections/ambiente-5.jpg', cls: 'g5', alt: 'Wand im NOYA' },
-  { src: '/assets/v2/sections/ambiente-6.jpg', cls: 'g6', alt: 'Die Bar im NOYA' },
-]
-const extra = [
+// V2 Ambiente — gap-free masonry of all ambient shots, each click-to-enlarge (lightbox).
+const gallery = [
+  { src: '/assets/v2/sections/ambiente-1.jpg', alt: 'Warmes Licht im NOYA' },
+  { src: '/assets/v2/sections/ambiente-2.jpg', alt: 'Der Gastraum im NOYA' },
   { src: '/assets/v2/sections/ambiente-7.jpg', alt: 'NOYA Schriftzug' },
+  { src: '/assets/v2/sections/ambiente-3.jpg', alt: 'Tische im NOYA' },
   { src: '/assets/v2/sections/ambiente-8.jpg', alt: 'Gedeckte Tafel im NOYA' },
+  { src: '/assets/v2/sections/ambiente-4.jpg', alt: 'NOYA Detail' },
   { src: '/assets/v2/sections/ambiente-9.jpg', alt: 'Tischgedeck im NOYA' },
+  { src: '/assets/v2/sections/ambiente-5.jpg', alt: 'Wand im NOYA' },
   { src: '/assets/v2/sections/ambiente-10.jpg', alt: 'Abendtisch im NOYA' },
+  { src: '/assets/v2/sections/ambiente-6.jpg', alt: 'Die Bar im NOYA' },
 ]
 
 export default function AmbienteV2() {
@@ -50,17 +48,9 @@ export default function AmbienteV2() {
           </div>
         </div>
 
-        <div className="gallery" data-card-stagger>
-          {tiles.map((t) => (
-            <figure className={`${t.cls} hv2-amb-tile`} key={t.cls} data-card onClick={() => setActive(t.src)}>
-              <img src={t.src} alt={t.alt} />
-            </figure>
-          ))}
-        </div>
-
-        <div className="hv2-amb-extra" data-card-stagger>
-          {extra.map((t) => (
-            <figure className="hv2-amb-tile" key={t.src} data-card onClick={() => setActive(t.src)}>
+        <div className="hv2-gallery" data-card-stagger>
+          {gallery.map((t) => (
+            <figure key={t.src} data-card onClick={() => setActive(t.src)}>
               <img src={t.src} alt={t.alt} />
             </figure>
           ))}

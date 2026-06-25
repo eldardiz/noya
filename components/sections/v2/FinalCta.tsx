@@ -11,7 +11,7 @@ export default function FinalCtaV2() {
         <div className="script">vielleicht heute abend?</div>
         <h2 className="display" data-words-pullup>Bis bald</h2>
         <div className="final-cta-actions">
-          <button className="btn beige-fill">Reservieren</button>
+          <a className="btn beige-fill" href={`tel:${brand.phoneHref}`}>Reservieren</a>
           <a className="btn" href={`tel:${brand.phoneHref}`}>Anrufen</a>
         </div>
       </div>

@@ -26,8 +26,8 @@ export default function PrivatisationV2() {
             ))}
           </div>
           <div className="contact-actions">
-            <a className="btn solid">Anfrage senden ↗</a>
-            <a className="cta brown">Räume ansehen</a>
+            <a className="btn solid" href="mailto:hallo@noya.at?subject=Private%20Feier%20Anfrage">Anfrage senden ↗</a>
+            <a className="cta brown" href="#ambiente">Räume ansehen</a>
           </div>
         </div>
         <div className="priv-photo">

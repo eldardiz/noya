@@ -19,7 +19,7 @@ function RollLabel({ text }: { text: string }) {
 // Full-screen overlay links mirror Qitchen's order: primary actions first.
 const menuLinks = [
   { label: 'Speisen', href: '#speisen' },
-  { label: 'Reservieren', href: brand.reserveUrl },
+  { label: 'Reservieren', href: `tel:${brand.phoneHref}` },
   { label: 'Frühstück', href: '#fruhstuck' },
   { label: 'Über', href: '#ueber' },
   { label: 'Galerie', href: '#ambiente' },
@@ -73,7 +73,7 @@ export default function NavV2() {
           <a href="#speisen"><RollLabel text="Speisen" /></a>
           <a href="#ueber"><RollLabel text="Über" /></a>
         </nav>
-        <a className="hv2-reserve" href={brand.reserveUrl}><RollLabel text="Reservieren" /></a>
+        <a className="hv2-reserve" href={`tel:${brand.phoneHref}`}><RollLabel text="Reservieren" /></a>
       </header>
 
       {/* fullscreen overlay menu */}

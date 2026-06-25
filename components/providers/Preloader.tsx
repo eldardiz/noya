@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 
 export default function Preloader() {
   const pathname = usePathname()
-  const skip = pathname === '/v2' // V2 is the new base — no preloader there
+  const skip = pathname !== '/' // preloader only on the V1 home; V2 + legal pages load straight in
   const [done, setDone] = useState(false)
   const counterRef = useRef<HTMLDivElement>(null)
   const maskRef = useRef<HTMLDivElement>(null)

@@ -5,16 +5,16 @@ import AboutV2 from '@/components/sections/v2/About'
 import FruhstuckV2 from '@/components/sections/v2/Fruhstuck'
 import AmbienteV2 from '@/components/sections/v2/Ambiente'
 import SpeisenV2 from '@/components/sections/v2/Speisen'
+import PlaylistV2 from '@/components/sections/v2/Playlist'
 import SocialV2 from '@/components/sections/v2/Social'
 import PrivatisationV2 from '@/components/sections/v2/Privatisation'
+import AnfahrtV2 from '@/components/sections/v2/Anfahrt'
 import FinalCtaV2 from '@/components/sections/v2/FinalCta'
+import FooterV2 from '@/components/sections/v2/Footer'
 // Reused image-less V1 sections
 import DaypartSection from '@/components/sections/DaypartSection'
 import MarqueeSection from '@/components/sections/MarqueeSection'
-import PlaylistSection from '@/components/sections/PlaylistSection'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
-import AnfahrtSection from '@/components/sections/AnfahrtSection'
-import Footer from '@/components/layout/Footer'
 
 export const metadata = {
   title: 'NOYA V2 — Vorschau',
@@ -23,7 +23,7 @@ export const metadata = {
 
 export default function V2Page() {
   return (
-    <main>
+    <main className="v2-page">
       <HeroV2 />
       <AboutV2 />
       <DaypartSection />
@@ -31,13 +31,13 @@ export default function V2Page() {
       <AmbienteV2 />
       <MarqueeSection />
       <SpeisenV2 />
-      <PlaylistSection />
+      <PlaylistV2 />
       <TestimonialsSection />
       <SocialV2 />
       <PrivatisationV2 />
-      <AnfahrtSection />
+      <AnfahrtV2 />
       <FinalCtaV2 />
-      <Footer />
+      <FooterV2 />
     </main>
   )
 }
