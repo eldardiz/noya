@@ -304,7 +304,7 @@ body:has(.v2-page) .nav{display:none !important;}
 
 /* social tiles: bottom-up gradient so the like counts read */
 .v2-page .social-tile::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(to top,rgba(0,0,0,.62) 0%,rgba(0,0,0,.14) 40%,transparent 62%);}
+  background:linear-gradient(to top,rgba(0,0,0,.74) 0%,rgba(0,0,0,.22) 45%,transparent 68%);}
 .v2-page .social-tile .likes{z-index:2;}
 
 /* gap-free ambiente masonry (replaces g1-g6 hole) */
