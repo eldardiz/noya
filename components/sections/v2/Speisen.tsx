@@ -55,7 +55,7 @@ export default function SpeisenV2() {
                 ))}
               </ul>
               <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                <a className="cta brown" href="https://www.thefork.at/restaurant/noya-mediterrane-fusion-kitchen-r863003/speisekarte" target="_blank" rel="noopener noreferrer">Ganze Karte →</a>
+                <a className="cta brown" href="/speisekarte.pdf" target="_blank" rel="noopener noreferrer">Ganze Karte →</a>
               </div>
             </div>
           </div>

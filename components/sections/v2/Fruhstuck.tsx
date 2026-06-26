@@ -21,7 +21,7 @@ export default function FruhstuckV2() {
             <li>Pancakes mit Ricotta</li>
             <li>Italian Espresso Bar</li>
           </ul>
-          <a className="cta brown" style={{ marginTop: 40 }} href="https://www.thefork.at/restaurant/noya-mediterrane-fusion-kitchen-r863003/speisekarte" target="_blank" rel="noopener noreferrer">Frühstückskarte ansehen →</a>
+          <a className="cta brown" style={{ marginTop: 40 }} href="/speisekarte.pdf" target="_blank" rel="noopener noreferrer">Frühstückskarte ansehen →</a>
         </div>
       </div>
     </section>
